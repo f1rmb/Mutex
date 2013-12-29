@@ -1,4 +1,6 @@
 /*
+  Mutex class library example for Arduino (tm), version 0.1
+
   Copyright (C) 2013 F1RMB, Daniel Caujolle-Bert <f1rmb.daniel@gmail.com>
 
   This program is free software; you can redistribute it and/or
@@ -17,28 +19,24 @@
 */
 #include <Arduino.h>
 #include "Mutex.h"
-/*
-  Turns on an LED on for one second, then off for one second, repeatedly.
 
-  This example code is in the public domain.
-*/
 Mutex mutex;
 
 void setup()
 {
-	// initialize the digital pin as an output.
-	// Pin 13 has an LED connected on most Arduino boards:
-	pinMode(13, OUTPUT);
+    // initialize the digital pin as an output.
+    // Pin 13 has an LED connected on most Arduino boards:
+    pinMode(13, OUTPUT);
 }
 
 void loop()
 {
     mutex.lock();
-	digitalWrite(13, HIGH);   // set the LED on
-	mutex.unlock();
-	delay(1000);              // wait for a second
-	mutex.lock();
-	digitalWrite(13, LOW);    // set the LED off
-	mutex.unlock();
-	delay(1000);              // wait for a second
+    digitalWrite(13, HIGH);   // set the LED on
+    mutex.unlock();
+    delay(1000);              // wait for a second
+    mutex.lock();
+    digitalWrite(13, LOW);    // set the LED off
+    mutex.unlock();
+    delay(1000);              // wait for a second
 }
