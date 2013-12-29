@@ -28,17 +28,17 @@ void setup()
 {
 	// initialize the digital pin as an output.
 	// Pin 13 has an LED connected on most Arduino boards:
-//	pinMode(13, OUTPUT);
+	pinMode(13, OUTPUT);
 }
 
 void loop()
 {
     mutex.lock();
-	//digitalWrite(13, HIGH);   // set the LED on
+	digitalWrite(13, HIGH);   // set the LED on
 	mutex.unlock();
-	//delay(1000);              // wait for a second
+	delay(1000);              // wait for a second
 	mutex.lock();
-	//digitalWrite(13, LOW);    // set the LED off
+	digitalWrite(13, LOW);    // set the LED off
 	mutex.unlock();
-	//delay(1000);              // wait for a second
+	delay(1000);              // wait for a second
 }
